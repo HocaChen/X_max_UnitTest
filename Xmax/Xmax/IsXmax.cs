@@ -6,11 +6,26 @@ namespace Xmax
     {
         static void Main()
         {
-            var today = DateTime.Today;
-            if(today.Month == 12 && today.Day == 25)
-                Console.WriteLine("Today is Xmax");
+            var logic = new Logic();
+            Console.WriteLine(logic.TodayIsXmax()); 
+        }
+    }
+
+    public class Logic
+    {
+        public string TodayIsXmax()
+        {
+            var today = GetDate();
+            if (today.Month == 12 && today.Day == 25)
+                return "Today is Xmax";
             else
-                Console.WriteLine("Today is not Xmax");
+                return "Today is not Xmax";
+
+        }
+
+        protected virtual DateTime GetDate()
+        {
+            return DateTime.Today;
         }
     }
 }
